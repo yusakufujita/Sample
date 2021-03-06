@@ -7,24 +7,37 @@
 
 import Foundation
 
-class Article: Codable {
+struct Article: Decodable {
+    let data:[Data]    
+//    enum CodingKeys: String, CodingKey {
+//        case title = "title"
+//        case lookingFor = "looking_for"
+//        case image
+//        case company
+//    }
+}
+struct Data: Decodable {
     let title: String
     let looking_for:String
     let image:Image
     let company:Company
 }
 
-class Image: Codable {
+
+struct Image: Decodable {
     let i_320_131:String
+//    enum CodingKeys:String,CodingKey {
+//        case i3201311 = "i_320_131"
+//    }
 }
 
-class Company:Codable {
+struct Company:Decodable {
     let name:String
     let avatar:Avatar
 }
 
-class Avatar:Codable {
-    let orignal:String
+struct Avatar:Decodable {
+    let original:String
 }
 
 

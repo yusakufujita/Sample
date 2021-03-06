@@ -8,6 +8,8 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    
+    private var image:String!
 
     override func viewDidLoad() {
         super.viewDidLoad()

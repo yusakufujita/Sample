@@ -1,20 +1,74 @@
 PODS:
   - Alamofire (5.4.1)
+  - MaterialComponents/AnimationTiming (124.0.0)
+  - MaterialComponents/Availability (124.0.0)
+  - MaterialComponents/Buttons (124.0.0):
+    - MaterialComponents/Elevation
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/Ripple
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/ShapeLibrary
+    - MaterialComponents/Shapes
+    - MaterialComponents/Typography
+    - MDFInternationalization
+    - MDFTextAccessibility
+  - MaterialComponents/Elevation (124.0.0):
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/Ink (124.0.0):
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/private/Application (124.0.0)
+  - MaterialComponents/private/Color (124.0.0):
+    - MaterialComponents/Availability
+  - MaterialComponents/private/Math (124.0.0)
+  - MaterialComponents/Ripple (124.0.0):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/ShadowElevations (124.0.0)
+  - MaterialComponents/ShadowLayer (124.0.0):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/ShapeLibrary (124.0.0):
+    - MaterialComponents/private/Math
+    - MaterialComponents/Shapes
+  - MaterialComponents/Shapes (124.0.0):
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowLayer
+  - MaterialComponents/Typography (124.0.0):
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/Math
+    - MDFTextAccessibility
+  - MDFInternationalization (2.0.0)
+  - MDFTextAccessibility (2.0.1)
   - Nuke (9.2.4)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - MaterialComponents/Buttons
   - Nuke
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - MaterialComponents
+    - MDFInternationalization
+    - MDFTextAccessibility
     - Nuke
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  MaterialComponents: 865cc843b07c818a3e53f4fb2d9d51e4885730bb
+  MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
+  MDFTextAccessibility: f4bb4cc2194286651b59a215fdeaa0e05dc90ba5
   Nuke: 44439f7a92e665a4f927ecd73cb51f91d93b0e0c
 
-PODFILE CHECKSUM: bf64aaf80bfd1a6f16c50c0bf5f019d053754ba8
+PODFILE CHECKSUM: 8ff79e2d223a3663bb0c5119bc0f1009ce4d04d6
 
 COCOAPODS: 1.9.1

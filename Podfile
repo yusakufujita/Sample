@@ -6,7 +6,7 @@ target 'Sample' do
   use_frameworks!
    pod 'Alamofire', '~> 5.2'
    pod 'Nuke'
-
+ pod 'MaterialComponents/Buttons'
   # Pods for Sample
 
   target 'SampleTests' do

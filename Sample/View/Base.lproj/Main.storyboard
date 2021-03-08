@@ -39,23 +39,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="kyG-rp-oSz"/>
                     <connections>
+                        <outlet property="searchbar" destination="fhe-LL-Hva" id="mXu-3E-0Mu"/>
                         <outlet property="tableView" destination="JC1-Wi-LLK" id="6s8-Ce-08u"/>
-                        <segue destination="4NC-0f-s70" kind="show" identifier="toDetail" id="R9u-H7-qsP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="944.92753623188412" y="93.75"/>
-        </scene>
-        <!--Detail-->
-        <scene sceneID="SSQ-z3-mdb">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Detail" id="4NC-0f-s70" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="WzE-BV-BfJ"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S0Y-cS-Qg4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1575" y="23"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hj1-FK-ntD">

@@ -18,11 +18,17 @@ struct Article: Decodable {
 }
 struct Data: Decodable {
     let title: String
+    let description:String
     let looking_for:String
     let image:Image
     let company:Company
+    let staffings:[Staffing]
+    let search:[String]
 }
 
+struct Staffing:Decodable {
+    let description:String
+}
 
 struct Image: Decodable {
     let i_320_131:String
@@ -33,6 +39,7 @@ struct Image: Decodable {
 
 struct Company:Decodable {
     let name:String
+    let founder:String
     let avatar:Avatar
 }
 

@@ -14,7 +14,8 @@ class ViewController: UIViewController,UITableViewDataSource, UISearchBarDelegat
     @IBOutlet weak var searchbar: UISearchBar!
     
     private var articles:[Data] = []
-    var searchResult = [Data]()
+    private var searchResult = [Data]()
+    private var masterData = [Data]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,8 @@ class ViewController: UIViewController,UITableViewDataSource, UISearchBarDelegat
 
     }
     
-
+      //データ取得に時間がかかるだけ
+    //ユーザーが操作したら、何かを返してくれる。インジゲーターとか
     private func fetch() {
         let urlString = "https://www.wantedly.com/api/v1/projects?q=swift&page=1"
         let request = AF.request(urlString)
@@ -48,7 +50,7 @@ class ViewController: UIViewController,UITableViewDataSource, UISearchBarDelegat
                 let decoder = JSONDecoder()
                 let article = try decoder.decode(Article.self, from: data)
                 self.articles = article.data
-                self.searchResult = article.data
+                self.masterData = article.data
                 self.tableView.reloadData()
                 print("article:",self.articles.count)
             }catch {
@@ -63,43 +65,18 @@ class ViewController: UIViewController,UITableViewDataSource, UISearchBarDelegat
         }
     }
     
-    //検索ボタン押下時の呼び出しメソッド
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        searchbar.endEditing(true)
-        //検索結果配列を空にする
-        articles.removeAll()
-        print(articles.description)
-//        print(searchResult)
-        if(searchbar.text == "") {
-            //検索文字列が空の場合はすべてを表示する。
-            articles = searchResult
-        }else {
-            //検索文字列を含むデータを検索結果配列に追加する。
-//            for data in dataList {
-//                if data.contains(searchbar.text!) {
-//                    searchResult.append(data)
-////                    print(data)
-//                }
-//                print(searchResult)
-////                print(data)
-//            }
-//            print("成功")
-        }
-        //テーブルを再読み込みする。
-        tableView.reloadData()
-    }
-    
-    
+//    //検索ボタン押下時の呼び出しメソッド
 //    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 //        searchbar.endEditing(true)
 //        //検索結果配列を空にする
-//        articles.removeAll()
 //        print(articles.description)
 ////        print(searchResult)
 //        if(searchbar.text == "") {
 //            //検索文字列が空の場合はすべてを表示する。
 //            articles = searchResult
 //        }else {
+//            searchResult = articles.filter{$0.description.contains(searchbar.text!)}
+//            articles = searchResult
 //            //検索文字列を含むデータを検索結果配列に追加する。
 ////            for data in dataList {
 ////                if data.contains(searchbar.text!) {
@@ -111,8 +88,38 @@ class ViewController: UIViewController,UITableViewDataSource, UISearchBarDelegat
 ////            }
 ////            print("成功")
 //        }
+//        //テーブルを再読み込みする。
 //        tableView.reloadData()
 //    }
+//
+    
+    //テキスト変更時の呼び出しメソッド
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchbar.endEditing(true)
+        //検索結果配列を空にする
+//        print(searchResult)
+        if(searchbar.text == "") {
+            //検索文字列が空の場合はすべてを表示する。
+            articles = masterData
+        }else {
+            searchResult = masterData.filter{$0.looking_for.contains(searchbar.text!) || $0.title.contains(searchbar.text!) || $0.company.name.contains(searchbar.text!) || $0.description.contains(searchbar.text!)}
+            
+            articles = searchResult
+            print("searchResultの結果は、\(searchResult)")
+            //検索文字列を含むデータを検索結果配列に追加する。
+//            for data in dataList {
+//                if data.contains(searchbar.text!) {
+//                    searchResult.append(data)
+////                    print(data)
+//                }
+//                print(searchResult)
+////                print(data)
+//            }
+//            print("成功")
+        }
+//        //テーブルを再読み込みする。
+        tableView.reloadData()
+    }
     
     
     // loadする関数の定義

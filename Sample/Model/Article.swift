@@ -23,7 +23,6 @@ struct Data: Decodable {
     let image:Image
     let company:Company
     let staffings:[Staffing]
-    let search:[String]
 }
 
 struct Staffing:Decodable {
